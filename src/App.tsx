@@ -1,3 +1,4 @@
+import { ScrollToTop } from './components/ScrollToTop';
 import { Routes, Route } from 'react-router-dom';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -14,6 +15,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+        <ScrollToTop />
         <Sidebar />
         <Routes>
           <Route path="/" element={

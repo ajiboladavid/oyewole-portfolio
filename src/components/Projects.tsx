@@ -1,101 +1,115 @@
 import { Link } from 'react-router-dom';
 import { ExternalLink, Github } from 'lucide-react';
 
+const projects = [
+  {
+    title: 'Chronic Kidney Disease Prediction System',
+    badge: 'ML · Healthcare',
+    description:
+      'ML-based clinical support system for early identification of CKD risk using supervised learning on patient health parameters.',
+    tags: ['Pandas', 'Numpy', 'Scikit-learn', 'Random Forest', 'Flask'],
+    links: [
+      { label: 'Repository', href: 'https://github.com/ajiboladavid/ckd-prediction-api', icon: 'github', external: true },
+      { label: 'Live Demo', href: 'https://ckdcheck.vercel.app', icon: 'external', external: true },
+    ],
+  },
+  {
+    title: 'Healthcare Research & Statistical Analysis',
+    badge: 'Research',
+    description:
+      'SPSS-based statistical analysis and research methodology across healthcare domains — study design, hypothesis testing, evidence synthesis.',
+    tags: ['SPSS', 'Hypothesis Testing', 'Research Design', 'Data Interpretation'],
+    links: [
+      { label: 'Case Studies', href: '/research', icon: 'external', external: false },
+    ],
+  },
+  {
+    title: 'Global Nursing Workforce Crisis Dashboard',
+    badge: 'INW 2026',
+    description:
+      'Interactive dashboard visualizing the global nursing shortage using WHO data — country-level metrics, regional gaps, and projections.',
+    tags: ['Python', 'Streamlit', 'Plotly', 'Pandas', 'WHO Data'],
+    links: [
+      { label: 'Repository', href: 'https://github.com/ajiboladavid/nurses-workforce-dashboard', icon: 'github', external: true },
+      { label: 'Scrollable', href: 'https://inw2026.streamlit.app', icon: 'external', external: true },
+      { label: 'Compact', href: 'https://inw2026-dashboard.streamlit.app', icon: 'external', external: true },
+    ],
+  },
+];
+
 export function Projects() {
-  
   return (
-    <section id="projects" className="py-20 px-4 bg-gray-50 dark:bg-gray-800/50">
+    <section id="projects" className="section-bg py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
           Featured Projects
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="group bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-400 dark:hover:border-teal-600">
-            <div className="p-8">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  Chronic Kidney Disease Prediction System
-                </h3>
-                <span className="px-3 py-1 bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 text-sm font-semibold rounded-full">
-                  Featured
-                </span>
-              </div>
-
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                ML-based clinical support system designed to assist early identification
-                of Chronic Kidney Disease risk. The system applies supervised learning techniques to patient health
-                parameters, translating predictive modeling into an accessible clinical tool.
-              </p>
-
-              <div className="mb-6">
-                <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Technology Stack:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['Pandas', 'Numpy', 'Scikit-learn', 'Random Forest', 'Flask'].map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-200 text-sm rounded-md"
-                    >
-                      {tech}
+        {/* Horizontal scroll container */}
+        <div className="overflow-x-auto pb-4">
+          <div className="flex gap-5" style={{ minWidth: 'max-content' }}>
+            {projects.map((project, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col justify-between rounded-xl border border-teal-900/40 bg-teal-950/20 hover:border-teal-700/60 transition-all duration-300 p-5"
+                style={{ width: '320px' }}
+              >
+                {/* Top */}
+                <div>
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <h3 className="text-base font-semibold text-white leading-snug">
+                      {project.title}
+                    </h3>
+                    <span className="shrink-0 px-2 py-0.5 text-xs font-medium bg-teal-950/50 text-teal-400 border border-teal-800/50 rounded-full">
+                      {project.badge}
                     </span>
-                  ))}
+                  </div>
+
+                  <p className="text-sm text-gray-400 leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {project.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-0.5 text-xs bg-teal-950/30 text-teal-300 border border-teal-800/40 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex flex-wrap gap-2">
+                  {project.links.map((link, i) =>
+                    link.external ? (
+                      
+                      <a
+                        key={i}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-lg border border-teal-700/50 text-teal-300 hover:bg-teal-900/30 transition-all duration-200"
+                      >
+                        {link.icon === 'github' ? <Github size={13} /> : <ExternalLink size={13} />}
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={i}
+                        to={link.href}
+                        className="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-lg border border-teal-700/50 text-teal-300 hover:bg-teal-900/30 transition-all duration-200"
+                      >
+                        <ExternalLink size={13} />
+                        {link.label}
+                      </Link>
+                    )
+                  )}
                 </div>
               </div>
-
-              <div className="flex gap-4">
-                <a
-                  href="https://github.com/ajiboladavid/ckd-prediction-system"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-all duration-300 hover:scale-105"
-                >
-                  <Github size={18} />
-                  <span>View Repository</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="group bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-teal-400 dark:hover:border-teal-600">
-            <div className="p-8">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  Healthcare Research and Statistical Analysis
-                </h3>
-                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-semibold rounded-full">
-                  Featured
-                </span>
-              </div>
-
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Comprehensive statistical analysis and research methodology work across healthcare domains.
-                Specializing in SPSS-based analytics, study design, and evidence synthesis for clinical research.
-              </p>
-
-              <div className="mb-6">
-                <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Core Competencies:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['SPSS', 'Hypothesis Testing', 'Research Design', 'Data Interpretation'].map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-200 text-sm rounded-md"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <Link
-                  to="/research"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 hover:scale-105"
-                >
-                  <ExternalLink size={18} />
-                  <span>View Case Studies</span>
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

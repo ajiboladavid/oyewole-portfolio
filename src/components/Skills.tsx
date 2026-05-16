@@ -1,6 +1,6 @@
 function SkillBadge({ skill }: { skill: string }) {
   return (
-    <span className="inline-block px-4 py-2 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg border-2 border-teal-200 dark:border-teal-800 hover:border-teal-400 dark:hover:border-teal-600 transition-all duration-300 hover:scale-105">
+    <span className="inline-block px-3 py-1 text-sm bg-teal-950/30 text-teal-300 rounded-full border border-teal-800/50 hover:border-teal-500 hover:text-teal-200 transition-all duration-200">
       {skill}
     </span>
   );
@@ -9,41 +9,45 @@ function SkillBadge({ skill }: { skill: string }) {
 export function Skills() {
   const skillCategories = [
     {
+      icon: '🏥',
       title: 'Clinical Practice',
       skills: ['Patient Care', 'Evidence-Based Practice', 'Clinical Workflows', 'Health Education'],
     },
     {
+      icon: '📊',
       title: 'Research Analytics',
       skills: ['SPSS', 'Excel', 'R'],
     },
     {
+      icon: '🧠',
       title: 'Machine Learning',
-      skills: ['Supervised Learning (Classification and Regression', 'Random Forest, XGBoost', 'Scikit-learn', 'Flask Deployment'],
+      skills: ['Classification & Regression', 'Random Forest · XGBoost', 'Scikit-learn', 'Flask Deployment'],
     },
     {
+      icon: '📈',
       title: 'Data Analytics',
-      skills: ['SQL', 'Data Visualization (Excel/Python)', 'Dashboard Development'],
+      skills: ['SQL', 'Data Visualization', 'Excel · Python', 'Dashboard Development'],
     },
   ];
 
   return (
-    <section id="skills" className="py-20 px-4">
+    <section id="skills" className="section-bg py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
           Skills & Expertise
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {skillCategories.map((category, idx) => (
             <div
               key={idx}
-              className="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-xl hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-teal-200 dark:hover:border-teal-800"
+              className="p-5 rounded-xl border border-teal-900/40 bg-teal-950/20 hover:border-teal-700/60 transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <div className="text-2xl mb-3">{category.icon}</div>
+              <h3 className="text-base font-semibold text-white mb-3">
                 {category.title}
               </h3>
-
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIdx) => (
                   <SkillBadge key={skillIdx} skill={skill} />
                 ))}

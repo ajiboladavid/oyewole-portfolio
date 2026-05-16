@@ -22,3 +22,16 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  background-color: #0a1628;
+}
+
+/* Unified section background — apply this class to every section except Hero */
+.section-bg {
+  background-color: #0a1628;
+  background-image:
+    radial-gradient(ellipse at 15% 50%, rgba(20, 184, 166, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 20%, rgba(10, 30, 80, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 90%, rgba(20, 184, 166, 0.03) 0%, transparent 50%);
+}

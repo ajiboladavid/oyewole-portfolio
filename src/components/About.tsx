@@ -1,41 +1,63 @@
 export function About() {
   return (
-    <section id="about" className="py-20 px-4 bg-gray-50 dark:bg-gray-800/50">
+    <section id="about" className="section-bg py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
           About Me
         </h2>
 
-        <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-          <p>
-            I work at the intersection of clinical practice, research analytics, and health technology,
-            combining frontline healthcare experience with data-driven problem solving.
-          </p>
+        <div className="grid md:grid-cols-2 gap-12 items-start">
 
-          <p>
-            My background in nursing informs my analytical work, allowing me to approach healthcare data
-            with practical clinical context rather than purely technical abstraction.
-          </p>
+          {/* Left — bio */}
+          <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+            <p>
+              I work at the intersection of clinical practice, research analytics, and health
+              technology — combining frontline nursing experience with data-driven problem solving.
+            </p>
+            <p>
+              My clinical background lets me approach healthcare data with practical context,
+              not purely technical abstraction. I understand what the numbers mean at the bedside.
+            </p>
+            <p>
+              As a research analyst, I use SPSS and Excel to analyze and interpret healthcare
+              research data, building analytical frameworks aligned with real-world care challenges.
+            </p>
+            <p>
+              In machine learning, my focus is applied modeling for healthcare. I build supervised
+              learning systems that translate ML techniques into usable decision-support tools —
+              including a Chronic Kidney Disease prediction system.
+            </p>
+            <p>
+              I am currently expanding into SQL and dashboard development, making healthcare data
+              more accessible, interpretable, and actionable.
+            </p>
+          </div>
 
-          <p>
-            As a research analyst, I use SPSS and Excel to analyze and interprete 
-            healthcare research data. My clinical foundation strengthens the use of analytical 
-            frameworks aligned with real-world care challenges.
-          </p>
+          {/* Right — stat cards */}
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { label: 'Clinical Experience', value: 'BNSc · RN · RM', icon: '🏥' },
+              { label: 'ML Focus', value: 'Healthcare AI', icon: '🧠' },
+              { label: 'Research Tools', value: 'SPSS · Excel', icon: '📊' },
+              { label: 'Flagship Project', value: 'CKD Predictor', icon: '🔬' },
+              { label: 'Dev Stack', value: 'Python · Flask', icon: '⚙️' },
+              { label: 'Expanding Into', value: 'SQL · Dashboards', icon: '📈' },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="rounded-xl border border-teal-900/40 bg-teal-950/20 p-4 space-y-1"
+              >
+                <span className="text-2xl">{item.icon}</span>
+                <p className="text-xs text-teal-400 uppercase tracking-widest font-medium">
+                  {item.label}
+                </p>
+                <p className="text-sm text-white font-semibold">{item.value}</p>
+              </div>
+            ))}
+          </div>
 
-          <p>
-            In machine learning, my work centers on applied modeling and practical healthcare applications. 
-            I develop and implement supervised learning systems, translating machine learning techniques 
-            into usable decision-support tools. Projects include applications such as the 
-            Chronic Kidney Disease Prediction system.
-          </p>
-
-          <p>
-            I am currently expanding into SQL and dashboard development, building systems that make
-            healthcare data more accessible, interpretable, and actionable.
-          </p>
         </div>
       </div>
-    </section >
+    </section>
   );
 }
