@@ -115,6 +115,7 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#0a1628]" />
 
       <div className="relative z-10 max-w-6xl w-full">
         <div className="flex flex-col md:flex-row items-center gap-10 animate-fade-in">

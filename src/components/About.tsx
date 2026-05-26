@@ -36,12 +36,12 @@ export function About() {
           {/* Right — stat cards */}
           <div className="grid grid-cols-2 gap-4">
             {[
-              { label: 'Clinical Experience', value: 'BNSc · RN · RM', icon: '🏥' },
+              { label: 'Clinical Background', value: 'BNSc · RN · RM', icon: '🏥' },
               { label: 'ML Focus', value: 'Healthcare AI', icon: '🧠' },
-              { label: 'Research Tools', value: 'SPSS · Excel', icon: '📊' },
-              { label: 'Flagship Project', value: 'CKD Predictor', icon: '🔬' },
-              { label: 'Dev Stack', value: 'Python · Flask', icon: '⚙️' },
-              { label: 'Expanding Into', value: 'SQL · Dashboards', icon: '📈' },
+              { label: 'Analytic Tools', value: 'SPSS · Excel', icon: '📊' },
+              { label: 'Research Projects', value: '80+ Projects', icon: '📚' },
+              { label: 'Tech Stack', value: 'Python · Flask', icon: '⚙️' },
+              { label: 'Currently Learning', value: 'SQL · Dashboards', icon: '📈' },
             ].map((item) => (
               <div
                 key={item.label}
