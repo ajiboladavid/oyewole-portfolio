@@ -39,7 +39,7 @@ export function About() {
               { label: 'Clinical Background', value: 'BNSc · RN · RM', icon: '🏥' },
               { label: 'ML Focus', value: 'Healthcare AI', icon: '🧠' },
               { label: 'Analytic Tools', value: 'SPSS · Excel', icon: '📊' },
-              { label: 'Research Projects', value: '80+ Projects', icon: '📚' },
+              { label: 'Research Analysis', value: '80+ Projects Completed', icon: '📚' },
               { label: 'Tech Stack', value: 'Python · Flask', icon: '⚙️' },
               { label: 'Currently Learning', value: 'SQL · Dashboards', icon: '📈' },
             ].map((item) => (
