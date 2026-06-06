@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Routes, Route } from 'react-router-dom';
 import { Hero } from './components/Hero';
@@ -31,6 +32,7 @@ function App() {
           <Route path="/research" element={<ResearchPage />} />
           <Route path="/research/:id" element={<CaseStudyPage />} />
         </Routes>
+        <Analytics />
       </div>
     </ThemeProvider>
   );
